@@ -3,16 +3,18 @@
 API de gestao de orcamentos, itens e medicoes. Este README resume a configuracao que estamos usando agora.
 
 ## Configuracao atual
-- Banco: H2 em memoria
-- URL: `jdbc:h2:mem:sopdb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS FINANCEIRO`
-- Usuario: `sa`
-- Senha: (vazia)
-- Schema padrao: `FINANCEIRO`
-- DDL: `spring.jpa.hibernate.ddl-auto=create`
-- Carga inicial: `spring.sql.init.mode=always` (usa `data.sql`)
-- Console H2: `http://localhost:8080/h2-console`
+- Banco: PostgreSQL local
+- URL: `jdbc:postgresql://localhost:5432/sopdb`
+- Usuario: `postgres`
+- Senha: `senha`
+- Schema padrao: `financeiro`
+- DDL: `spring.jpa.hibernate.ddl-auto=update`
+- SQL log: `spring.jpa.show-sql=true`
 
 Arquivo: `src/main/resources/application.properties`
+
+## Opcional: H2 em memoria
+Configuracoes de H2 estao comentadas em `src/main/resources/application.properties` para rodar sem banco externo.
 
 ## Fluxograma do banco
 
