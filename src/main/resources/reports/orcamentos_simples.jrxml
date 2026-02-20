@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="orcamentos_simples"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20"
+              uuid="b8f405d7-f5ac-4c6f-a2d0-78f5bca1fbcc">
+
+    <parameter name="TITULO" class="java.lang.String"/>
+    <parameter name="GERADO_EM" class="java.lang.String"/>
+
+    <field name="id" class="java.lang.Long"/>
+    <field name="nup" class="java.lang.String"/>
+    <field name="tipoOrcamento" class="java.lang.String"/>
+    <field name="valorTotal" class="java.math.BigDecimal"/>
+    <field name="status" class="java.lang.String"/>
+    <field name="dataCriacao" class="java.lang.String"/>
+
+    <title>
+        <band height="50">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="26" width="555" height="18"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Gerado em: " + $P{GERADO_EM}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="20">
+            <staticText><reportElement x="0" y="0" width="40" height="20"/><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="40" y="0" width="140" height="20"/><text><![CDATA[NUP]]></text></staticText>
+            <staticText><reportElement x="180" y="0" width="130" height="20"/><text><![CDATA[Tipo]]></text></staticText>
+            <staticText><reportElement x="310" y="0" width="90" height="20"/><text><![CDATA[Valor]]></text></staticText>
+            <staticText><reportElement x="400" y="0" width="70" height="20"/><text><![CDATA[Status]]></text></staticText>
+            <staticText><reportElement x="470" y="0" width="85" height="20"/><text><![CDATA[Criacao]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="18">
+            <textField><reportElement x="0" y="0" width="40" height="18"/><textFieldExpression><![CDATA[$F{id}]]></textFieldExpression></textField>
+            <textField><reportElement x="40" y="0" width="140" height="18"/><textFieldExpression><![CDATA[$F{nup}]]></textFieldExpression></textField>
+            <textField><reportElement x="180" y="0" width="130" height="18"/><textFieldExpression><![CDATA[$F{tipoOrcamento}]]></textFieldExpression></textField>
+            <textField><reportElement x="310" y="0" width="90" height="18"/><textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression></textField>
+            <textField><reportElement x="400" y="0" width="70" height="18"/><textFieldExpression><![CDATA[$F{status}]]></textFieldExpression></textField>
+            <textField><reportElement x="470" y="0" width="85" height="18"/><textFieldExpression><![CDATA[$F{dataCriacao}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+</jasperReport>
